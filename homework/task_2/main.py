@@ -50,7 +50,7 @@ def write_order_to_json(item, quantity, price, buyer, date):
         obj = json.loads(file_content)
         obj['orders'].append(order_dict)
 
-    with open('orders_test.json', 'w') as file:
+    with open('orders_test.json', 'w', encoding='utf-8') as file:
         json.dump(obj, file, sort_keys=True, indent=4)
 
 

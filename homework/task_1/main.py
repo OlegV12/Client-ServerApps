@@ -50,8 +50,8 @@ def get_data(files_list):
     os_name_list = []
     os_code_list = []
     os_type_list = []
-    pattern = r'\d{5}[-]\w{3}[-]\d{7}[-]\d{5}'
 
+    pattern = r'\d{5}[-]\w{3}[-]\d{7}[-]\d{5}'
     pattern_1 = r'(?<=Изготовитель системы:).*(?=\r)'
     pattern_2 = r'(?<=Название ОС:).*(?=\r)'
     pattern_3 = r'(?<=Тип системы:).*(?=\r)'
@@ -81,11 +81,11 @@ def write_to_csv():
     result = get_data(my_lst)
     main_data_list, os_prod_list, os_name_list, os_code_list, os_type_list = result
     data = list(zip(os_prod_list, os_name_list, os_code_list, os_type_list))
-    with open('test.csv', 'w') as f_n:
-        f_n_writer = csv.writer(f_n)
-        f_n_writer.writerow(main_data_list)
+    with open('test.csv', 'w', encoding='utf-8') as file:
+        file_writer = csv.writer(file)
+        file_writer.writerow(main_data_list)
         for row in data:
-            f_n_writer.writerow(row)
+            file_writer.writerow(row)
 
 
 write_to_csv()

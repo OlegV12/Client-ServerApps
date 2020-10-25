@@ -30,7 +30,7 @@ data = {
     }
 }
 
-with open('test.yaml', 'w') as file:
+with open('test.yaml', 'w', encoding='utf-8') as file:
     yaml.dump(data, file, default_flow_style=False, allow_unicode=True)
 
 
